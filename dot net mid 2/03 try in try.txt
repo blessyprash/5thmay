@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace NestedTry
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            try
+            {
+                int A=464;
+                int B;
+                int C;
+                try
+                {
+                    Console.WriteLine("ENTER VALUE TO DIVIDE");
+                    B=Convert.ToInt32(Console.ReadLine());
+                    C = A / B;
+                    Console.WriteLine(C);
+                }
+                catch (DivideByZeroException t)
+                {
+                    Console.WriteLine(t.Message);
+                   
+
+                }
+
+
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("THIS PROGRAM IS DONE BY 20001-CM-080 V.SREECHARAN");
+
+            }
+        }
+    }
+}

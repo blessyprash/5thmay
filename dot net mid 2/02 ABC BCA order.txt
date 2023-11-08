@@ -1,0 +1,115 @@
+ABC order
+
+ABC order will show error
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Exception_handling
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            try
+            {
+                throw new C("A is thrown");
+            }
+            catch (A ex)
+            {
+                Console.WriteLine("A:" + ex.Message);
+            }
+            catch (B e)
+            {
+                Console.WriteLine("B:" + e.Message);
+            }
+            catch (C ex)
+            {
+                Console.WriteLine ("C:"+ex.Message);
+            }
+        }
+        class A : Exception
+        {
+            public A(string msg) : base(msg)
+            {
+                
+            }
+        }
+        class B : A 
+        {
+            public B(string msg) : base(msg)
+            { }
+        }
+        class C : B
+        {
+            public C(string msg) : base(msg)
+            { }
+        }
+    }
+}
+
+
+
+
+
+
+CBA order
+
+CBA order dont show error
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Exception_handling
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            try
+            {
+                throw new C("A is thrown");
+            }
+            catch (C ex)
+            {
+                Console.WriteLine("C:" + ex.Message);
+            }
+
+            catch (B e)
+            {
+                Console.WriteLine("B:" + e.Message);
+            }
+           
+            catch (A ex)
+            {
+                Console.WriteLine("A:" + ex.Message);
+            }
+        }
+        class A : Exception
+        {
+            public A(string msg) : base(msg)
+            {
+
+            }
+        }
+        class B : A
+        {
+            public B(string msg) : base(msg)
+            { }
+        }
+        class C : B
+        {
+            public C(string msg) : base(msg)
+            { }
+        }
+    }
+}

@@ -1,0 +1,34 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace encapsulating_single_dim_array
+{
+    internal class Program
+    {
+        public class single_array
+        {
+            private string[] array = new String[4];
+            public string this[int i]
+            {
+                get { return array[i]; }
+                set { array[i] = value; }
+
+            }
+        }
+        static void Main(string[] args)
+        {
+            single_array arr = new single_array();
+            arr[0] = "siri";
+            arr[1] = "sree";
+            arr[2] = "charan";
+            arr[3] = "sree charan";
+            for (int i = 0; i < 4; i++)
+            {
+                Console.WriteLine("name="+arr[i]);
+            }
+        }
+    }
+}

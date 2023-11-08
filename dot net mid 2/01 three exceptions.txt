@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace exceptions
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] a=new int[4] { 24,45,55,36} ;
+            int b;
+            int res;
+
+            try
+            {
+                Console.WriteLine("enter number to divide");
+                b = Convert.ToInt32(Console.ReadLine());
+                for (int i = 0; i < 5; i++)
+                {
+                    res = a[i] / b;
+                    Console.WriteLine("result =" + res);
+
+                }
+
+            }
+            catch (DivideByZeroException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+    }
+}

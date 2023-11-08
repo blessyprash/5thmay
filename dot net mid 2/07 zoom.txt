@@ -1,0 +1,61 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Threading;
+
+namespace zoom
+{
+    internal class Program
+    {
+
+        static void Main(string[] args)
+        {
+            video v=new video();
+            audio a=new audio();
+            screen s=new screen();
+            Thread t1=new Thread(v.Video);
+            Thread t2 = new Thread(a.Audio);
+            Thread t3 = new Thread(s.sharescreen);
+            t1.Start();
+            t2.Start();
+            t3.Start();
+            t1.Join();
+            t2.Join();
+            t3.Join();
+        }
+        public class video
+        {
+            public void Video()
+            {
+                while (true)
+                {
+                    Console.WriteLine("video");
+                }
+            }
+        }
+        public class audio
+        {
+            public void Audio()
+            {
+                while (true)
+                {
+                    Console.WriteLine("Audio");
+                }
+            }
+        }
+        public class screen
+        {
+            public void sharescreen()
+            {
+                while (true)
+                {
+                    Console.WriteLine("screen");
+                }
+
+            }
+
+        }
+    }
+}

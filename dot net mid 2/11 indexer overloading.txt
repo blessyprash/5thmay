@@ -1,0 +1,55 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace encapsulation_overloading
+{
+    internal class Program
+    {
+        public class indexeroverloading
+        {
+            private int[] arr=new int[5];
+            private int[,] arr2=new int[2,2];
+            public int this[int i]
+            {
+                get { return arr[i]; }
+                set { arr[i] = value; }
+            }
+            public int this[int i, int j]
+            {
+                get { return arr2[i, j]; }
+                set { arr2[i, j] = value; }
+            }
+        }
+        static void Main(string[] args)
+        {
+            indexeroverloading array=new indexeroverloading();
+            array[0] = 1;
+            array[1] = 2;
+            array[2] = 3;
+            array[3] = 4;
+            array[4] = 5;
+            Console.WriteLine("single dimensional array:");
+            for (int i = 0; i < 5; i++)
+            {
+                Console.WriteLine("a[{0}]={1}",i,array[i]);
+            }
+            array[0,0] = 6;
+            array[0,1] = 7;
+            array[1,0] = 8;
+            array[1,1] = 9;
+            Console.WriteLine("multidimensional array:");
+            for (int j = 0; j < 2; j++)
+            {
+                for (int k = 0; k < 2; k++)
+                {
+                    Console.Write("a[{0}{1}]={2}\t",j,k,array[j,k]);
+                }
+                Console.WriteLine();
+            }
+
+        }
+    }
+}

@@ -1,0 +1,20 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace expression_biggest_of_three
+{
+    internal class Program
+    {
+        public delegate int big(int x,int y,int z);
+        static void Main(string[] args)
+        {
+            big b3 = (x, y, z) => (x > y && x > z) ? x:(y>z)?y:z;
+            int a = b3(20, 30, 10);
+            Console.WriteLine("the biggest number="+a);
+
+        }
+    }
+}

@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace generic_with_two_parameters
+{
+    internal class Program
+    {
+        public class Two_Parameters<T1, T2>
+        {
+            public T1 Value1;
+            public T2 Value2;
+            public Two_Parameters(T1 a, T2 b)
+            {
+                Value1 = a; 
+                Value2 = b;
+            }
+            public void display()
+            {
+                Console.WriteLine("value="+Value1);
+                Console.WriteLine("Value="+Value2);
+            }
+        }
+        static void Main(string[] args)
+        {
+            Two_Parameters<int,string> param = new Two_Parameters<int,string>(5,"siri");
+            param.display();
+        }
+    }
+}

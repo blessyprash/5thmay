@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+namespace invalid_age_exception
+{
+    internal class Program
+    {
+        public class invalid_age : Exception
+        {
+            public invalid_age(string msg) : base(msg)
+            {
+
+            }
+
+        }
+        public class voting
+        {
+            public int age;
+            public void vote()
+            {
+                try
+                {
+                    Console.WriteLine("enter age");
+                    age = Convert.ToInt32(Console.ReadLine());
+                    if (age < 18)
+                    {
+                        throw new invalid_age(" you are below 18 so you cant vote");
+                    }
+                    else
+                    { 
+                        Console.WriteLine("welcome to vote");
+                    }
+                }
+                catch(invalid_age e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+                
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            voting v=new voting();
+            v.vote();
+        }
+    }
+}

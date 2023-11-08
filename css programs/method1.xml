@@ -1,0 +1,14 @@
+<table>
+<h:table xmlns:h="https://www.youtube.com">
+<h:tr>
+<h:td>apples</h:td>
+<h:td>bananas</h:td>
+</h:tr>
+</h:table>
+<f:table xmlns:f="https://www.abcd.com">
+<f:tr>
+<f:td>bananas</f:td>
+<f:td>bapples</f:td>
+</f:tr>
+</f:table>
+</table>

@@ -1,0 +1,61 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Threading;
+
+namespace multithreading_differt_class
+{
+    internal class Program
+    {
+        public class square
+        {
+
+            public int number = 2;
+            public void squ()
+            {
+                for (int i = 1; i <= 10; i++)
+                {
+                    Console.WriteLine("square of" + i + "=" + Math.Pow(i, number));
+                }
+            }
+        }
+        public class squareroot
+        {
+            public void sqr_rt()
+            {
+                for (int j = 11; j <= 20; j++)
+                {
+                    Console.WriteLine("square root of" + j + "=" + Math.Sqrt(j));
+                }
+
+
+            }
+        }
+        public class cuberoot
+        {
+            public void cube_rt()
+            {
+                for (int k = 21; k <= 30; k++)
+                {
+                    Console.WriteLine("cube root of" + k + "=" + Math.Pow(k, 1 / 3.0));
+                }
+            }
+        }
+        static void Main(string[] args)
+        {
+           square s=new square();
+           squareroot sr=new squareroot();
+           cuberoot c=new cuberoot();
+            Thread t1=new Thread(s.squ);
+            Thread t2 = new Thread(sr.sqr_rt);
+            Thread t3 = new Thread(c.cube_rt);
+            t1.Start();
+            t2.Start();
+            t3.Start();
+           
+
+        }
+    }
+}

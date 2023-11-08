@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace IS_and_AS
+{
+    internal class Program
+    {
+        public class baseclass{}
+        public class derived : baseclass { }
+        static void Main(string[] args)
+        {
+            baseclass a=new baseclass();
+            derived d=new derived();
+            Console.WriteLine(a is baseclass);
+            Console.WriteLine(d is derived);
+            Console.WriteLine(d is baseclass);
+            Console.WriteLine(a is derived);
+            object[] obj =new object[5];
+            obj[0] = a;
+            obj[1] = "cat";
+            obj[2] = d;
+            obj[3] = 56;
+            obj[4]='A';
+            for (int i = 0; i < obj.Length; i++)
+            {
+               
+                string s=obj[i] as string;
+                Console.Write(i+":");
+                if (s == null)
+                    Console.WriteLine("null");
+                else
+                {
+                    Console.WriteLine(s);
+                }
+            }
+        }
+    }
+}

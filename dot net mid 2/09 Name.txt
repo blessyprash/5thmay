@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace property_name
+{
+    internal class Program
+    {
+        public class person
+        {
+            private string Name;
+            public string name
+            {
+                get { return Name; }
+                set { Name = value; }
+            }
+        }
+        static void Main(string[] args)
+        {
+            person p = new person();
+            Console.WriteLine("enter name:");
+            p.name =Convert.ToString(Console.ReadLine());
+            Console.WriteLine("name="+p.name);
+        }
+    }
+}

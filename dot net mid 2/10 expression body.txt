@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace expression_body_method
+{
+    public class person
+    {
+        private string name;
+        public string Name
+        {
+            get=>name;
+            set=>name=value;
+        }
+
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            person p=new person();
+            Console.WriteLine("enter name");
+            p.Name=Convert.ToString(Console.ReadLine());
+            Console.WriteLine("name="+p.Name);
+        }
+    }
+}

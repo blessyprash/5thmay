@@ -1,0 +1,79 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace event_handling
+{
+    public delegate void ballhitting();
+    internal class Program
+    {
+        public class batsman
+        {
+
+            public event ballhitting ballhit;
+
+            public int i = 0;
+            public void hitball()
+            {
+                while (i!=6)
+                {
+                    Console.WriteLine("batsman hit the ball");
+                    onballhit();
+                    i++;
+
+
+                }
+            }
+            public void onballhit()
+            {
+                if (ballhit != null)
+                {
+                    ballhit.Invoke();
+                }
+            }
+        }
+        public class fielder
+        {
+            public void Fielder()
+            {
+               
+                
+                    Console.WriteLine("fielder is chasing the ball");
+           
+            }
+        }
+        public class umpire
+        {
+            public void Umpire()
+            {
+              
+                    Console.WriteLine("given the decision");
+                
+            }
+        }
+        public class audience
+        {
+            public void Audience()
+            {
+                
+                    Console.WriteLine("cheering");
+               
+            }
+        }
+        static void Main(string[] args)
+        {
+            batsman b=new batsman();    
+            fielder f=new fielder();
+            umpire u=new umpire();
+            audience au=new audience();
+            b.ballhit += f.Fielder;
+            b.ballhit += u.Umpire;
+            b.ballhit += au.Audience;
+            b.hitball();
+           
+
+        }
+    }
+}
